@@ -1,26 +1,10 @@
-# requiring the environment of NodeJS 10
-image: node:20
-
-# add 'node_modules' to cache for speeding up builds
-cache:
-  paths:
-    - node_modules/ # Node modules and dependencies
-
-# the 'pages' job will deploy and build your site to the 'build' path
-pages:
-  tags:
-    - Pages
-  stage: deploy
-  script:
-    - npm install
-    - npm run build
-    - rm -rf public
-    - cp build/index.html build/404.html
-    - mv build public
-
-  artifacts:
-    paths:
-      - public
-  only:
-    - main # this job will affect only the 'master' branch
-
+# The Docker image that will be used to build your app
+image: node:lts
+create-pages:
+  pages:
+    # The folder that contains the files to be exposed at the Page URL
+    publish: public
+  rules:
+    # This ensures that only pushes to the default branch will trigger
+    # a pages deploy
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
