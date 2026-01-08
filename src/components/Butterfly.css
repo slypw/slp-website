@@ -1,0 +1,87 @@
+.butterfly-wrapper {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  bottom: 0;
+}
+
+/* Leader butterfly */
+.butterfly-wrapper.leader {
+  width: 150px;
+  left: -150px; /* start off-screen left */
+  animation: fly-linear 20s linear infinite;
+}
+
+/* Follower butterfly */
+.butterfly-wrapper.follower {
+  width: 100px;
+  left: -200px;
+  animation: fly-linear 20s linear infinite;
+  animation-delay: 3s; /* trails naturally */
+}
+
+/* Butterfly flapping */
+.butterfly-img {
+  width: 100%;
+  height: auto;
+  transform: scaleX(-1);
+  transform-origin: center bottom;
+  animation: flap 2s infinite ease-in-out;
+}
+
+/* Wing flap */
+@keyframes flap {
+  0%,
+  100% {
+    transform: scaleX(-1) rotate(0deg);
+  }
+  50% {
+    transform: scaleX(-1) rotate(8deg);
+  }
+}
+
+/* Linear horizontal motion; vertical low first 75%, then upward curve */
+@keyframes fly-linear {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  10% {
+    transform: translate(150px, -5px);
+  }
+  20% {
+    transform: translate(300px, -10px);
+  }
+  30% {
+    transform: translate(450px, -12px);
+  }
+  40% {
+    transform: translate(600px, -15px);
+  }
+  50% {
+    transform: translate(750px, -18px);
+  }
+  60% {
+    transform: translate(900px, -20px);
+  }
+  70% {
+    transform: translate(1050px, -22px);
+  }
+  75% {
+    transform: translate(1125px, -25px);
+  } /* low skim ends */
+  80% {
+    transform: translate(1200px, -80px);
+  } /* upward curve */
+  85% {
+    transform: translate(1275px, -160px);
+  }
+  90% {
+    transform: translate(1350px, -270px);
+  }
+  95% {
+    transform: translate(1425px, -420px);
+  }
+  100% {
+    transform: translate(1500px, -600px);
+  } /* exits top-right */
+}

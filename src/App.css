@@ -1,82 +1,183 @@
-.WebApp {
-  text-align: center;
-  background-color: black;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-body {
-  text-align: center;
-  padding-bottom: 10vmin;
-  background-color: black;
-  color: white;
-}
-
-.love {
-  text-align: center;
-  padding-bottom: 10vmin;
-  background-color: black;
-  color: rgb(254, 1, 1);
-  font: italic;
-}
-
-.start {
-  align-content: center;
-  border-radius: 2px;
-  height: auto;
-  max-width: 100%;
-}
-
-.joke {
-  align-content: center;
-  height: auto;
-  max-width: 100%;
-}
-
-.hitting {
-  align-content: center;
-  border-radius: 2px;
-  height: auto;
-  max-width: 100%;
-}
-
-.cat {
-  align-content: center;
-  height: auto;
-  max-width: 100%;
-}
-
-.cake {
-  align-content: center;
-  border-radius: 2px;
-  height: auto;
-  max-width: 100%;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
+  position: relative;
   min-height: 100vh;
+  background: linear-gradient(145deg, #fdfbf8 0%, #f2eee7 55%, #e6ded3 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+}
+
+/* Silk canvas */
+.silk-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Navigation bar */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 2rem 3rem;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-links button {
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6a6a6a;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-links button.active {
+  color: #1e1e1e;
+}
+
+.nav-links button::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links button.active::after,
+.nav-links button:hover::after {
+  opacity: 0.4;
+}
+
+/* Page content */
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 8rem 2rem 2rem 2rem;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Fade transitions */
+.fade {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.fade.show {
+  opacity: 1;
+}
+
+/* Pages */
+.page {
+  text-align: center;
+}
+
+.page h1,
+.page h2 {
+  color: #1e1e1e;
+}
+
+/* Home page tweaks */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* align content to top-ish */
+  align-items: center;
+  height: 100vh;
+  padding-top: 15vh; /* move content slightly down from top */
+  overflow: hidden; /* prevents scrolling */
+}
+
+.home-page .name {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 0.5rem;
+  transform: none; /* remove negative translate */
+}
+
+.home-page .tagline {
+  font-size: 1rem;
+  color: #6a6a6a;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+/** Butterfly css*/
+.butterfly {
+  position: fixed; /* Fixes the butterfly relative to the viewport */
+  bottom: 20px; /* Distance from bottom */
+  left: 20px; /* Distance from left */
+  width: 150px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Flapping effect */
+@keyframes flap {
+  0% {
+    transform: rotate(0deg) scaleY(1);
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: rotate(5deg) scaleY(0.9);
+  }
+  50% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  75% {
+    transform: rotate(-5deg) scaleY(0.9);
+  }
+  100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+}
+
+/* Floating motion */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-8px) translateX(5px);
+  }
+  50% {
+    transform: translateY(0) translateX(10px);
+  }
+  75% {
+    transform: translateY(-5px) translateX(5px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
   }
 }
