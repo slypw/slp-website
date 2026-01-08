@@ -9,26 +9,27 @@ import butterfly from "../images/butterfly.png";
 
 const About: React.FC = () => (
   <div className="about-page">
-    {/* Butterflies flying above header */}
-    <img src={butterfly} alt="" className="butterfly top-butterfly-1" />
-    <img src={butterfly} alt="" className="butterfly top-butterfly-2" />
-    <img src={butterfly} alt="" className="butterfly top-butterfly-3" />
+    <div className="butterfly-space">
+      {/* Butterflies flying across the top */}
+      <img src={butterfly} alt="" className="butterfly top-butterfly-1" />
+      <img src={butterfly} alt="" className="butterfly top-butterfly-2" />
+    </div>
 
     <div className="page">
-      <h2>Hi, I'm Saan Lily Popović!</h2>
+      <h3>Hi, I'm Saan Lily Popović!</h3>
       <p>
         I'm a fourth-year undergraduate student and teaching assistant at the
         Paul G. Allen School of Computer Science at the University of
         Washington.
       </p>
 
-      <h2>I'm currently working on a speech-to-text full-stack website</h2>
+      <h3>I'm currently working on a speech-to-text full-stack website</h3>
       <p>
         to translate from English to Serbo-Croatian (and other languages coming
         soon)!
       </p>
 
-      <h2>I like to bake and experiment with new recipes.</h2>
+      <h3>I like to bake and experiment with new recipes.</h3>
       <p>
         You can see some of my baking projects on my Instagram:{" "}
         <a
@@ -48,7 +49,7 @@ const About: React.FC = () => (
         <img src={chocolateCake} alt="Chocolate cake with frosting roses." />
       </div>
 
-      <h2>I also enjoy hiking and exploring the world in my free time.</h2>
+      <h3>I also enjoy hiking and exploring the world in my free time.</h3>
 
       <div className="photo-row">
         <img src={austria} alt="Scenic river between Austria and Serbia." />
