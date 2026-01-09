@@ -5,7 +5,7 @@ const Home: React.FC = () => (
   <div className="page home-page">
     <Butterfly />
     <h1 className="name">Saan Lily Popović</h1>
-    <p className="tagline">Developer • Designer • Baker • Student</p>
+    <p className="tagline">Сан Лили Поповић</p>
   </div>
 );
 

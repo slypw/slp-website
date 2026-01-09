@@ -23,15 +23,17 @@ const About: React.FC = () => (
         Washington.
       </p>
 
-      <h3>I'm currently working on a speech-to-text full-stack website</h3>
+      <h3>Current Work</h3>
       <p>
-        to translate from English to Serbo-Croatian (and other languages coming
+        I'm currently working on a speech-to-text full-stack website to
+        translate from English to Serbo-Croatian (and other languages coming
         soon)!
       </p>
 
-      <h3>I like to bake and experiment with new recipes.</h3>
+      <h3>Hobbies</h3>
       <p>
-        You can see some of my baking projects on my Instagram:{" "}
+        I like to bake and experiement with new recipes. You can see some of my
+        baking projects on my Instagram:{" "}
         <a
           href="https://www.instagram.com/frosted.bylily/"
           target="_blank"
@@ -49,7 +51,7 @@ const About: React.FC = () => (
         <img src={chocolateCake} alt="Chocolate cake with frosting roses." />
       </div>
 
-      <h3>I also enjoy hiking and exploring the world in my free time.</h3>
+      <p>I also enjoy hiking and exploring the world in my free time.</p>
 
       <div className="photo-row">
         <img src={austria} alt="Scenic river between Austria and Serbia." />

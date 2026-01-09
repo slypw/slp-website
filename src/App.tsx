@@ -5,8 +5,7 @@ import Home from "./pages/Home";
 import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
-
-type Page = "home" | "resume" | "projects" | "about";
+type Page = "home" | "projects" | "about";
 
 const App: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -82,8 +81,6 @@ const App: React.FC = () => {
 
   const renderPage = () => {
     switch (page) {
-      case "resume":
-        return <Resume />;
       case "projects":
         return <Projects />;
       case "about":
@@ -100,7 +97,7 @@ const App: React.FC = () => {
       {/* Navigation */}
       <nav className="nav">
         <ul className="nav-links">
-          {["home", "resume", "projects", "about"].map((p) => (
+          {["home", "projects", "about"].map((p) => (
             <li key={p}>
               <button
                 className={page === p ? "active" : ""}
@@ -108,9 +105,9 @@ const App: React.FC = () => {
               >
                 {p === "home"
                   ? "Home"
-                  : p === "resume"
-                  ? "Resume"
-                  : p === "projects"
+                  : // : p === "resume"
+                  // ? "Resume"
+                  p === "projects"
                   ? "Projects"
                   : "About Me"}
               </button>
