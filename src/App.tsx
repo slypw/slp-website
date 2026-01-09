@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import "./App.css";
 
 import Home from "./pages/Home";
-import Resume from "./pages/Resume";
+// import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
 type Page = "home" | "projects" | "about";
