@@ -2,10 +2,12 @@ import React, { useRef, useEffect, useState } from "react";
 import "./App.css";
 
 import Home from "./pages/Home";
-// import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
-type Page = "home" | "projects" | "about";
+import Blogs from "./pages/Blogs"; // Import Blogs page
+import SotaResnetCifar10 from "./pages/blogs/sota-resnet-cifar10-class"; // Example blog page
+
+type Page = "home" | "projects" | "about" | "blogs" | "sota-resnet";
 
 const App: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -70,6 +72,7 @@ const App: React.FC = () => {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
+  // Handle page changes with fade
   const handlePageChange = (newPage: Page) => {
     if (newPage === page) return;
     setFade(false);
@@ -79,14 +82,19 @@ const App: React.FC = () => {
     }, 200);
   };
 
+  // Render pages
   const renderPage = () => {
     switch (page) {
       case "projects":
         return <Projects />;
       case "about":
         return <About />;
+      case "blogs":
+        return <Blogs goToPage={handlePageChange} />;
+      case "sota-resnet":
+        return <SotaResnetCifar10 goToPage={handlePageChange} />;
       default:
-        return <Home />;
+        return <Home goToPage={handlePageChange} />;
     }
   };
 
@@ -97,7 +105,7 @@ const App: React.FC = () => {
       {/* Navigation */}
       <nav className="nav">
         <ul className="nav-links">
-          {["home", "projects", "about"].map((p) => (
+          {["home", "projects", "blogs", "about"].map((p) => (
             <li key={p}>
               <button
                 className={page === p ? "active" : ""}
@@ -105,11 +113,11 @@ const App: React.FC = () => {
               >
                 {p === "home"
                   ? "Home"
-                  : // : p === "resume"
-                  // ? "Resume"
-                  p === "projects"
+                  : p === "projects"
                   ? "Projects"
-                  : "About Me"}
+                  : p === "about"
+                  ? "About Me"
+                  : "Blogs"}
               </button>
             </li>
           ))}

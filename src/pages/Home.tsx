@@ -1,7 +1,12 @@
 import React from "react";
 import Butterfly from "../components/Butterfly";
+import { Page } from "../blogsData"; // adjust path if needed
 
-const Home: React.FC = () => (
+type PageProps = {
+  goToPage: (page: Page) => void;
+};
+
+const Home: React.FC<PageProps> = ({ goToPage }) => (
   <div className="page home-page">
     <Butterfly />
     <h1 className="name">Saan Lily Popović</h1>

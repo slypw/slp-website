@@ -204,3 +204,73 @@
     transform: translateY(0) translateX(0);
   }
 }
+
+/* --- Blog List Styling --- */
+
+.blog-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.blog-link {
+  /* 1. Background: Kept the gradient, but slightly more opaque for separation */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 242, 235, 0.9) 100%
+  );
+
+  /* 2. Border: Added a tiny bit of "contrast color" to the white border so edges pop */
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  /* 3. Shadow: Darkened the shadow color (from ~rgba(230...) to ~rgba(190...)) */
+  /* This creates a sharper "cut" against the background */
+  box-shadow:
+    0 4px 15px rgba(196, 186, 176, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+
+  /* 4. Text: Darkened from #6a6a6a to #524a46 (Deep Warm Taupe) for better readability */
+  padding: 1.5rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600; /* Bumped weight slightly for legibility */
+  color: #524a46;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-link:hover {
+  transform: translateY(-3px);
+  color: #1e1e1e; /* Pure dark grey on hover */
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 250, 245, 1) 100%
+  );
+
+  /* Sharper shadow on lift */
+  box-shadow:
+    0 10px 30px rgba(180, 170, 160, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.9);
+
+  border-color: #ffffff;
+}
+
+.blog-link:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 10px rgba(196, 186, 176, 0.3),
+    inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
