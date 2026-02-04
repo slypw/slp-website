@@ -7,6 +7,6 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
-  { id: "sota-resnet", title: "ResNet CIFAR-10 classifier" },
+  { id: "sota-resnet", title: "ResNet CIFAR-10 Classifier" },
   // Add more posts here!
 ];

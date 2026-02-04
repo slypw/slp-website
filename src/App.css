@@ -207,39 +207,45 @@
 
 /* --- Blog List Styling --- */
 
+/* --- Blog List Styling --- */
+
 .blog-links {
   display: flex;
   flex-direction: column;
+  align-items: center; /* This stops them from stretching full width */
   gap: 1.5rem;
   width: 100%;
-  max-width: 600px;
   margin: 2rem auto 0;
 }
 
 .blog-link {
-  /* 1. Background: Kept the gradient, but slightly more opaque for separation */
+  /* 1. Background */
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.95) 0%,
     rgba(250, 242, 235, 0.9) 100%
   );
 
-  /* 2. Border: Added a tiny bit of "contrast color" to the white border so edges pop */
+  /* 2. Border & Shape */
   border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50px; /* Full "Pill" shape */
 
-  /* 3. Shadow: Darkened the shadow color (from ~rgba(230...) to ~rgba(190...)) */
-  /* This creates a sharper "cut" against the background */
+  /* 3. Sizing: Fitted to text */
+  width: auto; /* Hugs the text */
+  min-width: 200px; /* Ensures short titles don't look too tiny */
+  max-width: 80%; /* Prevents extremely long titles from breaking layout */
+
+  /* 4. Shadow */
   box-shadow:
     0 4px 15px rgba(196, 186, 176, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 1);
 
-  border-radius: 20px;
   backdrop-filter: blur(5px);
 
-  /* 4. Text: Darkened from #6a6a6a to #524a46 (Deep Warm Taupe) for better readability */
-  padding: 1.5rem 2rem;
+  /* 5. Text & Padding */
+  padding: 1rem 3rem; /* Slightly tighter top/bottom, wider sides */
   font-size: 1.1rem;
-  font-weight: 600; /* Bumped weight slightly for legibility */
+  font-weight: 600;
   color: #524a46;
   text-align: center;
   cursor: pointer;
@@ -252,7 +258,7 @@
 
 .blog-link:hover {
   transform: translateY(-3px);
-  color: #1e1e1e; /* Pure dark grey on hover */
+  color: #1e1e1e;
 
   background: linear-gradient(
     135deg,
@@ -260,7 +266,6 @@
     rgba(255, 250, 245, 1) 100%
   );
 
-  /* Sharper shadow on lift */
   box-shadow:
     0 10px 30px rgba(180, 170, 160, 0.5),
     inset 0 0 15px rgba(255, 255, 255, 0.9);
